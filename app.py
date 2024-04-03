@@ -32,15 +32,6 @@ class MoverResponseSchema(Schema):
     moverId = fields.Int()
     positions = fields.List(fields.Nested(PositionSchema))
 
-class TodoResponseSchema(Schema):
-    id = fields.Int()
-    title = fields.Str()
-    status = fields.Boolean()
-
-class TodoListResponseSchema(Schema):
-    todo_list = fields.List(fields.Nested(TodoResponseSchema))
-
-
 @app.route('/mover/<int:moverId>')
 def mover(moverId):
     """Get the information of a single mover by moverId
@@ -80,36 +71,7 @@ def mover(moverId):
 
     return jsonify(dummy_data)
 
-
-@app.route('/todo')
-def todo():
-    """Get List of Todo
-    ---
-    get:
-        description: Get List of Todos
-        responses:
-            200:
-                description: Return a todo list
-                content:
-                    application/json:
-                        schema: TodoListResponseSchema
-    """
-
-    dummy_data = [{
-        'id': 1,
-        'title': 'Finish this task',
-        'status': False
-    }, {
-        'id': 2,
-        'title': 'Finish that task',
-        'status': True
-    }]
-
-    return TodoListResponseSchema().dump({'todo_list': dummy_data})
-
-
 with app.test_request_context():
-    spec.path(view=todo)
     spec.path(view=mover)
 
 @app.route('/docs')
