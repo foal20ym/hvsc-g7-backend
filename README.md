@@ -10,7 +10,9 @@ To get started, follow these steps:
 3. Install the project dependencies by running: `pip install -r requirements.txt`.
 
 ## Usage
-Once you have installed the project dependencies, you can run the backend using the following command: 
+Once you have installed the project dependencies, you can run the backend by doing the following :
+1. Navigate to the project directorys root: `your-directory-path/hvsc-g7-backend/`
+2. Run the application by typing the following in the terminal: `python3 app.py`
 
 ## Project frameworks description:
 This code utilizes several frameworks for web development and API specification. Here's a brief overview of each framework and its purpose:
