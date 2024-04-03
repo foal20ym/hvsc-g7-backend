@@ -1,0 +1,7 @@
+flask
+requests
+apispec
+apispec-webframeworks
+marshmallow
+pytest
+assertpy
